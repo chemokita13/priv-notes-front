@@ -1,6 +1,6 @@
 import axios from "axios";
-
 import React, { Component, ReactPropTypes } from "react";
+import Cookies from "universal-cookie";
 import { NextRouter, withRouter } from "next/router";
 
 interface MyState {
@@ -15,6 +15,7 @@ interface WithRouterProps {
 
 interface MyProps extends WithRouterProps {}
 class Login extends Component<MyProps, MyState> {
+    cookies = new Cookies();
     constructor(props: MyProps) {
         super(props);
         this.state = {
@@ -46,7 +47,7 @@ class Login extends Component<MyProps, MyState> {
                 this.state.user
             );
             // set the auth token in cookies
-            document.cookie = `token=${data.access_token}`;
+            this.cookies.set("access_token", data.access_token, { path: "/" });
             // redirect to home notes page
             this.props.router.push("/notes");
         } catch (error) {
