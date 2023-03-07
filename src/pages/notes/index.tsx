@@ -1,9 +1,3 @@
-//type Note = { title: string; content: string; authorId: string; _id?: string };
-
-//     handleEditNote(id: string) {
-//         this.props.router.push(`/notes/edit/${id}`);
-//     }
-
 import { Note } from "../../dataTypes/note";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -45,6 +39,7 @@ const Index = () => {
                     </div>
                 );
             })}
+            <button onClick={() => router.push("/notes/new")}>New note</button>
         </div>
     );
 };
