@@ -1,3 +1,4 @@
+import { API } from "@/constants/constant";
 import { Note } from "../../../dataTypes/note";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -12,7 +13,7 @@ function editNote() {
 
     // Get note to edit from server
     const getNote = async () => {
-        const { data } = await axios.get(`http://localhost:4000/notes/${id}`, {
+        const { data } = await axios.get(`${API}/notes/${id}`, {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${cookie.get("access_token")}`,
@@ -32,16 +33,12 @@ function editNote() {
     // Handle form submit and send edited note to server
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const response = await axios.put(
-            `http://localhost:4000/notes/${Note._id}`,
-            Note,
-            {
-                withCredentials: true,
-                headers: {
-                    Authorization: `Bearer ${cookie.get("access_token")}`,
-                },
-            }
-        );
+        const response = await axios.put(`${API}/notes/${Note._id}`, Note, {
+            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${cookie.get("access_token")}`,
+            },
+        });
 
         // Check if everything went well by status code
         if (response.status === 200) {

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component, ReactPropTypes } from "react";
 import Cookies from "universal-cookie";
 import { NextRouter, withRouter } from "next/router";
+import { API } from "@/constants/constant";
 
 interface MyState {
     user: {
@@ -42,10 +43,7 @@ class Login extends Component<MyProps, MyState> {
         event.preventDefault();
         try {
             // Sends the user state to the server
-            const { data } = await axios.post(
-                "http://localhost:4000/auth",
-                this.state.user
-            );
+            const { data } = await axios.post(`${API}/auth`, this.state.user);
             // set the auth token in cookies
             this.cookies.set("access_token", data.access_token, { path: "/" });
             // redirect to home notes page

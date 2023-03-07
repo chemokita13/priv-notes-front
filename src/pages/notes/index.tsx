@@ -1,3 +1,4 @@
+import { API } from "@/constants/constant";
 import { Note } from "../../dataTypes/note";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -10,7 +11,7 @@ const Index = () => {
     const cookie = new Cookies(); // cookies object
 
     const getnotes = async () => {
-        const { data } = await axios.get("http://localhost:4000/notes", {
+        const { data } = await axios.get(`${API}/notes`, {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${cookie.get("access_token")}`,

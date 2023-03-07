@@ -3,6 +3,7 @@ import { Note } from "../../dataTypes/note";
 import React, { useState } from "react";
 import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
+import { API } from "../../constants/constant";
 
 function newNote() {
     const cookie = new Cookies(); // Get login token from cookies
@@ -24,7 +25,7 @@ function newNote() {
         event.preventDefault(); // Prevent page reload
 
         // Send note to API server
-        const response = await axios.post(`http://localhost:4000/notes`, Note, {
+        const response = await axios.post(`${API}/notes`, Note, {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${cookie.get("access_token")}`,
