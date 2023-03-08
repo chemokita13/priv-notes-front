@@ -11,13 +11,18 @@ const Index = () => {
     const cookie = new Cookies(); // cookies object
 
     const getnotes = async () => {
-        const { data } = await axios.get(`${API}/notes`, {
-            withCredentials: true,
-            headers: {
-                Authorization: `Bearer ${cookie.get("access_token")}`,
-            },
-        });
-        setNotes(data);
+        try {
+            const { data } = await axios.get(`${API}/notes`, {
+                withCredentials: true,
+                headers: {
+                    Authorization: `Bearer ${cookie.get("access_token")}`,
+                },
+            });
+            setNotes(data);
+        } catch (error) {
+            alert("Something went wrong!");
+            router.push("/");
+        }
     };
 
     const handleEditNote = (id: string) => {
