@@ -19,6 +19,7 @@ function newNote() {
         setNote({ ...Note, [event.target.name]: event.target.value });
     };
 
+    // Handle form submit and send Note to API server
     const handleFormSubmit = async (
         event: React.FormEvent<HTMLFormElement>
     ): Promise<void> => {
