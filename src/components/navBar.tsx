@@ -1,36 +1,28 @@
-import React, { useEffect, useState } from "react";
-import Cookies from "universal-cookie";
+import React, { useState } from "react";
+import Link from "next/link";
 
 function NavBar() {
-    const cookie = new Cookies(); // cookie object to access cookies
-    const [Token, setToken] = useState(false);
-
-    useEffect(() => {
-        const token = cookie.get("access_token"); // get the token cookie
-        console.log(token);
-        if (token) {
-            setToken(true);
-        } else {
-            setToken(false);
-        }
-    }, []);
+    const [clickedUser, setClickedUser] = useState<Boolean>(false); // When the user clicks on the user button, the state changes to true and the user menu is displayed
 
     return (
         <nav>
-            <ul>
-                <li>Home</li>
-
-                {Token ? (
-                    <ul>
-                        <li>Login</li>
-                        <li>Register</li>
-                    </ul>
-                ) : (
-                    <ul>
-                        <li>Logout</li>
-                        <li> Notes</li>
-                    </ul>
-                )}
+            <ul className="flex cursor-pointer md:flex-row md:gap-40 md:justify-around">
+                <Link href={"/"}>
+                    <li>Home</li>
+                </Link>
+                <li onClick={() => setClickedUser(!clickedUser)}>
+                    Users
+                    {clickedUser && (
+                        <ul>
+                            <Link href={"/users/login"}>
+                                <li>Log in</li>
+                            </Link>
+                            <Link href={"/users/new"}>
+                                <li>Create user</li>
+                            </Link>
+                        </ul>
+                    )}
+                </li>
             </ul>
         </nav>
     );
