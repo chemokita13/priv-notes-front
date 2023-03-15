@@ -6,11 +6,16 @@ function NavBar() {
 
     return (
         <nav>
-            <ul className="flex cursor-pointer md:flex-row md:gap-40 md:justify-around">
+            <ul className="flex cursor-pointer bg-cyan-700 md:flex-row md:gap-40 md:justify-around md:p-2">
                 <Link href={"/"}>
-                    <li>Home</li>
+                    <li className="font-medium border rounded-lg border-cyan-600 md:py-2 md:px-5 bg-emerald-500">
+                        Home
+                    </li>
                 </Link>
-                <li onClick={() => setClickedUser(!clickedUser)}>
+                <li
+                    className="font-medium border rounded-lg border-cyan-600 md:py-2 md:px-5 bg-emerald-500 "
+                    onClick={() => setClickedUser(!clickedUser)}
+                >
                     Users
                     {clickedUser && (
                         <ul>
