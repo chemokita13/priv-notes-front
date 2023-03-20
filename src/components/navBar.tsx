@@ -21,7 +21,7 @@ function NavBar() {
                     >
                         Users
                     </div>
-                    <ul className={`${!clickedUser && "hidden"}`}>
+                    <ul className={`${!clickedUser && "hidden"} text-left`}>
                         <li className="text-white hover:underline">
                             <Link href={"/users/login"}>Log in</Link>
                         </li>
