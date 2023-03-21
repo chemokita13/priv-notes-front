@@ -34,11 +34,18 @@ const Index = () => {
     }, [getnotes]);
 
     return (
-        <div>
-            {notes.map((note, index) => {
-                return <NoteComponent note={note} key={index} />;
-            })}
-            <button onClick={() => router.push("/notes/new")}>New note</button>
+        <div className="flex flex-col h-full bg-blue-500">
+            <div className="flex flex-col md:flex-wrap my-7 md:flex-row md:my-0">
+                {notes.map((note, index) => {
+                    return <NoteComponent note={note} key={index} />;
+                })}
+            </div>
+            <button
+                onClick={() => router.push("/notes/new")}
+                className="self-center absolute md:static bottom-32 md:bottom-auto shadow-xl md:shadow-lg p-2 font-bold text-gray-300 transition-all duration-75 bg-blue-600 rounded-md hover:outline-blue-600 hover:bg-sky-300 hover:text-gray-500 hover:scale-105 md:w-1/2 md:p-1.5 outline outline-sky-300"
+            >
+                New note
+            </button>
         </div>
     );
 };
