@@ -49,6 +49,7 @@ class Login extends Component<MyProps, MyState> {
             // redirect to home notes page
             this.props.router.push("/notes");
         } catch (error) {
+            console.log(error);
             alert("Something went wrond, try again");
         }
     };
