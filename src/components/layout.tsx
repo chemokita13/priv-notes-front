@@ -4,7 +4,7 @@ import Footer from "./footer";
 
 function Layout({ children }: any) {
     return (
-        <div className="w-screen h-screen overflow-x-hidden">
+        <div className="flex flex-col w-screen h-screen overflow-x-hidden bg-black">
             <NavBar />
             {children}
             <Footer />
