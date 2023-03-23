@@ -56,21 +56,29 @@ class Login extends Component<MyProps, MyState> {
 
     render() {
         return (
-            <div>
-                <form action="" onSubmit={(e) => this.handleSubmitForm(e)}>
+            <div className="flex flex-col items-center justify-center w-full h-full bg-blue-500">
+                <h1 className="text-white md:text-8xl md:font-bold md:mb-10">
+                    Log in
+                </h1>
+                <form
+                    className="flex flex-col items-center justify-center md:outline md:outline-white md:rounded-xl md:w-1/2 md:h-1/2 md:bg-blue-400"
+                    onSubmit={(e) => this.handleSubmitForm(e)}
+                >
                     <input
                         type="text"
                         name="username"
                         id="name"
-                        placeholder="username"
+                        placeholder="Username:"
                         onChange={(e) => this.handleInputChange(e)}
+                        className="text-center border border-blue-300 rounded-lg md:h-8 md:w-72 placeholder:text-left md:p-3 md:m-1"
                     />
                     <input
                         type="text"
                         name="password"
                         id="pass"
-                        placeholder="password"
+                        placeholder="Password:"
                         onChange={(e) => this.handleInputChange(e)}
+                        className="text-center border border-blue-300 rounded-lg md:h-8 md:w-72 placeholder:text-left md:p-3 md:m-1"
                     />
                     <button type="submit">Login</button>
                 </form>
