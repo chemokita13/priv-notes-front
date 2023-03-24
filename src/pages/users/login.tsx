@@ -74,7 +74,7 @@ class Login extends Component<MyProps, MyState> {
                         className="p-2 m-1 border border-blue-300 rounded-md w-52 h-7 md:text-center md:rounded-lg md:h-8 md:w-72 placeholder:text-left md:p-3"
                     />
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         id="pass"
                         placeholder="Password:"
