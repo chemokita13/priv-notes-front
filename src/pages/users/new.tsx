@@ -69,7 +69,7 @@ function newUser() {
                     Submit
                 </button>
                 <span className="text-white cursor-pointer hover:underline">
-                    <Link href={"/users/new"}>Or log in</Link>
+                    <Link href={"/users/login"}>Or log in</Link>
                 </span>
             </form>
         </div>
