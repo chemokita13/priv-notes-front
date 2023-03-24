@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function Home() {
     return (
         <div className="flex flex-col items-center justify-center w-full h-full bg-blue-500">
-            <h1 className="font-extrabold text-white md:text-8xl md:p-5">
+            <h1 className="m-3 font-extrabold text-white text-8xl md:p-5 md:m-0">
                 A private notes page.
             </h1>
-            <h2 className="font-bold text-blue-50 md:p-5 md:text-4xl">
+            <h2 className="mt-10 font-bold text-blue-50 md:p-5 md:mt-0 md:text-4xl">
                 Using nextjs with typescript,
             </h2>
             <h3 className="font-bold text-blue-100 md:p-5 md:text-3xl md:ml-5">
