@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { API } from "../../constants/constant";
 import Link from "next/link";
 
-function newNote() {
+function NewNote() {
     const cookie = new Cookies(); // Get login token from cookies
     const router = useRouter(); // Nextjs router
 
@@ -86,4 +86,4 @@ function newNote() {
     );
 }
 
-export default newNote;
+export default NewNote;

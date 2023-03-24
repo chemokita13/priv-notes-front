@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-function newUser() {
+function NewUser() {
     const router = useRouter(); // This is the hook to use next router
 
     // User state to create and send to server
@@ -76,4 +76,4 @@ function newUser() {
     );
 }
 
-export default newUser;
+export default NewUser;

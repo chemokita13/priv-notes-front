@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Link from "next/link";
 
-function editNote() {
+function EditNote() {
     const router = useRouter(); // Nextjs router
     const { id } = router.query; // Get id param from url
     const cookie = new Cookies(); // Get login token from cookies
@@ -96,4 +96,4 @@ function editNote() {
     );
 }
 
-export default editNote;
+export default EditNote;
